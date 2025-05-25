@@ -1,6 +1,7 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,14 +10,23 @@
     <title>Tempest Chatbot</title>
     <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}">
 </head>
+
 <body>
     <script src="{% static 'bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+    <form id="csrf-form">{% csrf_token %}</form>
     <h1>Tempest Chatbot</h1>
     <div class="container">
-        <form id="csrf-form">{% csrf_token %}</form>
-        <textarea class="form-control" id="chatInput" aria-placeholder="Question"></textarea>
-        <button class="btn btn-primary" id="sendMessage" onclick="sendMessage()">Send</button>
+        <div class="row">
+            <div class="form-floating mb-3 col-md">
+                <input type="email" class="form-control" id="chatInput" placeholder="Stelle eine Frage">
+                <label for="floatingInput">Eingabe</label>
+            </div>
+            <div class="col-sm">
+                <button class="btn btn-primary" id="sendMessage" onclick="sendMessage()">Send</button>
+            </div>
+        </div>
         <textarea class="form-control" id="chatOutput" aria-placeholder="Answer"></textarea>
-    </div>  
+    </div>
 </body>
+
 </html>
