@@ -1,10 +1,18 @@
+{% load static %}
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'tempest.css' %}">
+    <script src="{% static 'tempest.js' %}"></script>
     <title>Tempest Chatbot</title>
 </head>
 <body>
-    
+    <h1>Tempest Chatbot</h1>
+    <form id="csrf-form">{% csrf_token %}</form>
+    <textarea id="chatInput" aria-placeholder="Question"></textarea>
+    <button id="sendMessage" onclick="sendMessage()">Send</button>
+    <textarea id="chatOutput" aria-placeholder="Answer"></textarea>
 </body>
 </html>
