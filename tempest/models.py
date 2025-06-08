@@ -1,3 +1,7 @@
 from django.db import models
 
-# Create your models here.
+class ChatMessage(models.Model):
+    user_message = models.CharField()
+    system_message = models.CharField()
+    timestamp = models.DateTimeField()
+
