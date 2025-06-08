@@ -1,10 +1,13 @@
 from ollama import chat
 from ollama import ChatResponse
+from ollama import Client
 import ollama
 
 #print(ollama.list())
 
-def processMessage(question):
+ollamaClient = Client()
+
+"""def processMessage(question):
     response: ChatResponse = chat(model='llama3.2', messages=[
         {
             'role': 'user',
@@ -12,5 +15,13 @@ def processMessage(question):
         },
     ])
     print(response.message.content)
-    return response.message.content
+    return response.message.content"""
+
+def processMessage(question):
+    response = ollamaClient.generate(
+        model='llama3.2',
+        prompt=question
+        )
+    print(response['response'])
+    return response['response']
 

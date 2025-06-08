@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{% static 'tempest.css' %}">
     <script src="{% static 'tempest.js' %}"></script>
+    <script src="jquery-3.7.1.min.js"></script>
     <title>Tempest Chatbot</title>
     <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}">
 </head>
@@ -14,18 +15,20 @@
 <body>
     <script src="{% static 'bootstrap/js/bootstrap.bundle.min.js' %}"></script>
     <form id="csrf-form">{% csrf_token %}</form>
-    <h1>Tempest Chatbot</h1>
     <div class="container">
+        <h1>Tempest Chatbot</h1>
+        <div class="d-flex flex-column" id="chatHistory">
+
+        </div>
         <div class="row">
-            <div class="form-floating mb-3 col-md">
+            <div class=" mb-3 col-lg-10">
                 <input type="email" class="form-control" id="chatInput" placeholder="Stelle eine Frage">
-                <label for="floatingInput">Eingabe</label>
             </div>
-            <div class="col-sm">
+            <div class="mb-3 col-sm">
                 <button class="btn btn-primary" id="sendMessage" onclick="sendMessage()">Send</button>
             </div>
         </div>
-        <textarea class="form-control" id="chatOutput" aria-placeholder="Answer"></textarea>
+         
     </div>
 </body>
 
