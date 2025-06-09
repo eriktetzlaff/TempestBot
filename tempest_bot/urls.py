@@ -20,5 +20,6 @@ from tempest.views import tempest
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('tempest/', tempest)
+    path('tempest/', tempest),
+    path('', include('tempest.urls'))
 ]
